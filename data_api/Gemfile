@@ -1,0 +1,14 @@
+source "https://rubygems.org"
+
+gem "roda"
+gem 'rackup'
+
+gem "rom"
+gem "rom-sql"
+gem "sqlite3"
+gem "gpgme"
+gem 'sidekiq'
+gem 'rack-protection'
+gem 'minitest'
+gem 'rack-test'
+

@@ -1,0 +1,14 @@
+source "https://rubygems.org"
+
+gem 'dry-schema'
+
+gem 'rom-sql'
+gem 'sqlite3', '1.5.0.rc2'
+
+group :development do
+  gem "rake"
+end
+
+group :test do
+  gem 'minitest'
+end

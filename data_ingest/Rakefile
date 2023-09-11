@@ -1,0 +1,25 @@
+require 'bundler/setup'
+
+require "minitest/test_task"
+
+require 'rom/sql'
+require 'rom/sql/rake_task'
+
+config = ROM::Configuration.new(:sql, 'sqlite://../data/database.db')
+
+Minitest::TestTask.create(:test) do |t|
+  t.libs << "test"
+  t.libs << "lib/**/*.rb"
+  t.warning = false
+  t.test_globs = ["test/**/*_test.rb"]
+end
+
+namespace :db do
+  task :setup do
+    ROM::SQL::RakeSupport.env = config
+  end
+
+  task :reset => [:clean, :migrate]
+end
+
+task :default => :test
